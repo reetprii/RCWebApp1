@@ -11,7 +11,7 @@
 
 </head>
 <body>
-	<h1>Valige asutus mida hinnata</h1>
+	<h1>Valige hindamiseks asutus</h1>
 	<div class="wrap">
 		<nav>
 			<ul class="primary">

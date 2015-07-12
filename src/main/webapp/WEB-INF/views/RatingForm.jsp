@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div align="center">
-		<h1>Lisa hinnang</h1>
+		<h1>Lisa hinnang > ${companyName}</h1>
 		<form:form action="saveRating" method="post" modelAttribute="rating">
 		<table class="formtable">
 			

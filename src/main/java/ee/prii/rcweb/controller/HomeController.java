@@ -60,11 +60,14 @@ public class HomeController {
 	public ModelAndView listRating(ModelAndView model, HttpServletRequest request) {
 		int companyId = Integer.parseInt(request.getParameter("id"));
 
+		Company company = companyDAO.get(companyId);
+		String companyName = company.getName();
+		model.addObject("companyName", companyName);
+		
+		
 		Rating newRating = new Rating();
 		newRating.setCompany_id(companyId);
 		
-		Company newCompany = new Company(companyId);
-		String companyName = newCompany.getName();
 		
 		model.addObject("rating", newRating);
 
@@ -80,7 +83,11 @@ public class HomeController {
 	public ModelAndView saveRating(ModelAndView model, @Valid @ModelAttribute("rating") Rating rating,
 			BindingResult result) {
 		if (result.hasErrors()) {
-
+			
+			Company company = companyDAO.get(rating.getCompany_id());
+			String companyName = company.getName();
+			model.addObject("companyName", companyName);
+			
 			model.setViewName("RatingForm");
 			return model;
 		} else {
